@@ -8,6 +8,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
+<script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+    btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+    });
+    document.addEventListener('click', function (event) {
+        if (!btn.contains(event.target) && !menu.contains(event.target) && window.innerWidth < 768) {
+            menu.classList.add('hidden');
+        }
+    });
+</script>
 
 <body>
 
