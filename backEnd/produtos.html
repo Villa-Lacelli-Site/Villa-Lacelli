@@ -35,7 +35,6 @@
     </div>
 </header>
 <script>
-    // Script para abrir/fechar o menu mobile
     const btn = document.getElementById('menu-btn');
     const menu = document.getElementById('menu');
     btn.addEventListener('click', () => {
@@ -113,7 +112,6 @@
     </div>
 </footer>
 <script>
-// Produtos mockados (incluindo os do index)
 const produtos = [
     {
         nome: 'Bolo de Chocolate',
@@ -130,7 +128,6 @@ const produtos = [
         descricao: 'Pão de mel recheado e coberto com chocolate, uma explosão de sabor.',
         imagem: 'IMG/gelado.png'
     },
-    // Mock extra
     {
         nome: 'Bolo de Cenoura',
         descricao: 'Bolo de cenoura fofinho com cobertura de chocolate.',
@@ -205,7 +202,6 @@ function renderProdutos() {
 function renderPaginacao() {
     const paginacao = document.getElementById('paginacao');
     paginacao.innerHTML = '';
-    // Botão anterior
     const btnAnterior = document.createElement('button');
     btnAnterior.innerHTML = '← Anterior';
     btnAnterior.className = 'px-2 py-1 rounded hover:bg-gray-200 disabled:opacity-50';
@@ -213,7 +209,6 @@ function renderPaginacao() {
     btnAnterior.onclick = () => { paginaAtual--; atualizar(); };
     paginacao.appendChild(btnAnterior);
 
-    // Números de página
     let start = Math.max(1, paginaAtual - 1);
     let end = Math.min(totalPaginas, paginaAtual + 1);
     if (paginaAtual === 1) end = Math.min(3, totalPaginas);
@@ -231,7 +226,6 @@ function renderPaginacao() {
         addPaginaBtn(totalPaginas);
     }
 
-    // Botão próximo
     const btnProximo = document.createElement('button');
     btnProximo.innerHTML = 'Próximo →';
     btnProximo.className = 'px-2 py-1 rounded hover:bg-gray-200 disabled:opacity-50';
