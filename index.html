@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
-<body>
+<body class="min-h-screen flex flex-col" style="background:#b7cee9;">
 <header class="flex items-center justify-between px-4 md:px-8 py-2 md:py-4 min-h-16 md:min-h-20" style="background-color: #202D82;">
     <img src="IMG/logosemfundo.png" alt="" class="h-10 w-auto md:h-16">
 
@@ -28,7 +28,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="bg-[#F47C6D] text-white px-2 py-1 md:px-4 rounded-lg hover:bg-[#e96a5a] transition text-sm md:text-base block text-center">
+                <a href="frontEnd/sobre.html" class="bg-[#F47C6D] text-white px-2 py-1 md:px-4 rounded-lg hover:bg-[#e96a5a] transition text-sm md:text-base block text-center">
                     Sobre
                 </a>
             </li>
@@ -65,99 +65,123 @@
         }
     });
 </script>
-<main class="bg-[#e7dfc6] min-h-screen pb-8">
-    <h1 class="text-5xl font-bold text-[#202D82] pt-8 pb-4 px-8">Produtos</h1>
-    <div class="flex flex-col md:flex-row gap-6 justify-center px-4 md:px-0">
-        <div class="bg-[#d6b7a2] rounded-lg p-6 w-full md:w-80 flex flex-col items-center shadow-md">
-            <div class="bg-white rounded-md w-40 h-40 flex items-center justify-center mb-4">
-                <img src="IMG/chocolate.png" alt="">
-            </div>
-            <h2 class="font-bold text-lg mb-2">Bolo de Chocolate</h2>
-            <p class="text-sm text-gray-700">Delicioso bolo de chocolate com cobertura cremosa, perfeito para qualquer ocasião.</p>
-        </div>
-        <div class="bg-[#d6b7a2] rounded-lg p-6 w-full md:w-80 flex flex-col items-center shadow-md">
-            <div class="bg-white rounded-md w-40 h-40 flex items-center justify-center mb-4">
-            <img src="IMG/Limão.png" alt="">
-            </div>
-            <h2 class="font-bold text-lg mb-2">Torta de Limão</h2>
-            <p class="text-sm text-gray-700">Torta de limão com massa crocante e recheio suave, finalizada com merengue.</p>
-        </div>
-        <div class="bg-[#d6b7a2] rounded-lg p-6 w-full md:w-80 flex flex-col items-center shadow-md">
-            <div class="bg-white rounded-md w-40 h-40 flex items-center justify-center mb-4">
-             <img src="IMG/gelado.png" alt="">
-            </div>
-            <h2 class="font-bold text-lg mb-2">Tortinha de Amendoim</h2>
-            <p class="text-sm text-gray-700">Pão de mel recheado e coberto com chocolate, uma explosão de sabor.</p>
+<section class="w-full bg-[#e7dfc6] py-8">
+    <h2 class="text-4xl font-bold text-[#202D82] text-center mb-6">Destaques</h2>
+    <div class="max-w-4xl mx-auto">
+        <div id="carrossel-produtos" class="grid grid-cols-1 md:grid-cols-3 gap-6 justify-center px-4 md:px-0"></div>
+        <div class="flex justify-center mt-4">
+            <nav id="carrossel-paginacao" class="flex items-center space-x-2 text-gray-700"></nav>
         </div>
     </div>
-    <section class="bg-[#b7cee9] w-full flex flex-col md:flex-row items-center justify-center py-10 px-4 gap-8 mt-8">
-        <div class="flex-shrink-0 flex justify-center w-full md:w-auto">
-            <img src="IMG/chocolate.png" alt="Produto destaque" class="w-64 h-64 object-contain rounded-lg border-2 border-black bg-white">
-        </div>
-        <div class="flex-1 flex items-center justify-center">
-            <p class="text-2xl md:text-3xl text-black font-normal">
-                Texto sobre a história dos irmão<br>
-                <span class="text-base font-light">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod. Proin euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod.
-                </span>
-            </p>
-        </div>
-    </section>
-</main>
-<footer class="bg-[#202D82] text-white py-10 px-4 md:px-16 mt-8">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-10">
-        <div class="mb-8 md:mb-0 flex flex-col items-start">
-            <div class="flex space-x-4 mb-4">
-                <a href="#" aria-label="Twitter" class="hover:opacity-80">
-                    <i class="fa-brands fa-x-twitter text-2xl"></i>
-                </a>
-                <a href="#" aria-label="Instagram" class="hover:opacity-80">
-                    <i class="fa-brands fa-instagram text-2xl"></i>
-                </a>
-                <a href="#" aria-label="YouTube" class="hover:opacity-80">
-                    <i class="fa-brands fa-youtube text-2xl"></i>
-                </a>
-                <a href="#" aria-label="LinkedIn" class="hover:opacity-80">
-                    <i class="fa-brands fa-linkedin text-2xl"></i>
-                </a>
+</section>
+<script>
+const produtosIndex = [
+    { nome: 'Empadinha de Frango', imagem: 'IMG/EmpadinhaDeFrango.png' },
+    { nome: 'Enroladinho de Salsicha', imagem: 'IMG/Enroladinho de salsicha.png' },
+    { nome: 'Pão Caseiro', imagem: 'IMG/pao.png' },
+    { nome: 'Pão de Queijo', imagem: 'IMG/paoDeQueijo.png' },
+    { nome: 'Salgado Assado', imagem: 'IMG/SalgadoAssado.png' },
+    { nome: 'Torta de Frango', imagem: 'IMG/tortaDeFrango.png' },
+    { nome: 'Bolo de Chocolate', imagem: 'IMG/chocolate.png' },
+    { nome: 'Torta de Limão', imagem: 'IMG/Limão.png' },
+    { nome: 'Tortinha de Amendoim', imagem: 'IMG/gelado.png' },
+    { nome: 'Bolo de Cenoura', imagem: 'IMG/boloDeCenoura.png' },
+    { nome: 'Cheesecake', imagem: 'IMG/gelado.png' },
+    { nome: 'Brownie', imagem: 'IMG/chocolate.png' }
+];
+let slideIndex = 0;
+const produtosPorSlideIndex = 3;
+const totalSlidesIndex = Math.ceil(produtosIndex.length / produtosPorSlideIndex);
+function renderCarrosselIndex() {
+    const lista = document.getElementById('carrossel-produtos');
+    lista.innerHTML = '';
+    const inicio = slideIndex * produtosPorSlideIndex;
+    const fim = inicio + produtosPorSlideIndex;
+    const slideProdutos = produtosIndex.slice(inicio, fim);
+    slideProdutos.forEach(produto => {
+        const card = document.createElement('div');
+        card.className = 'bg-[#d6b7a2] rounded-lg p-6 flex flex-col items-center shadow-md';
+        card.innerHTML = `
+            <div class="bg-white rounded-md w-40 h-40 flex items-center justify-center mb-4">
+                <img src="${produto.imagem}" alt="${produto.nome}" class="object-contain h-36 w-36">
             </div>
+            <h2 class="font-bold text-lg mb-2 text-center">${produto.nome}</h2>
+        `;
+        lista.appendChild(card);
+    });
+    renderCarrosselControlesIndex();
+}
+function renderCarrosselControlesIndex() {
+    const paginacao = document.getElementById('carrossel-paginacao');
+    paginacao.innerHTML = '';
+    const btnAnterior = document.createElement('button');
+    btnAnterior.innerHTML = '←';
+    btnAnterior.className = 'px-3 py-2 rounded hover:bg-gray-200 disabled:opacity-50';
+    btnAnterior.disabled = slideIndex === 0;
+    btnAnterior.onclick = () => { slideIndex--; renderCarrosselIndex(); };
+    paginacao.appendChild(btnAnterior);
+    for (let i = 0; i < totalSlidesIndex; i++) {
+        const btn = document.createElement('button');
+        btn.innerHTML = i + 1;
+        btn.className = 'px-2 py-1 rounded ' + (i === slideIndex ? 'bg-[#202D82] text-white' : 'hover:bg-gray-200');
+        btn.disabled = i === slideIndex;
+        btn.onclick = () => { slideIndex = i; renderCarrosselIndex(); };
+        paginacao.appendChild(btn);
+    }
+    const btnProximo = document.createElement('button');
+    btnProximo.innerHTML = '→';
+    btnProximo.className = 'px-3 py-2 rounded hover:bg-gray-200 disabled:opacity-50';
+    btnProximo.disabled = slideIndex === totalSlidesIndex - 1;
+    btnProximo.onclick = () => { slideIndex++; renderCarrosselIndex(); };
+    paginacao.appendChild(btnProximo);
+}
+document.addEventListener('DOMContentLoaded', renderCarrosselIndex);
+</script>
+<section class="bg-[#b7cee9] w-full flex flex-col md:flex-row items-center justify-center py-10 px-4 gap-8 mt-8">
+    <div class="flex-1 flex flex-col items-start justify-center max-w-2xl">
+        <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">Nós conheça</h2>
+        <p class="text-base md:text-lg text-black mb-4">
+            Seja bem-vindo à <span class="font-semibold text-[#202D82]">Villa Lacelli</span>! Nosso nome é uma homenagem à <span class="italic">Rua La Cerda</span>, em Cascavel, onde nasceu a tradição de sabores autênticos e acolhedores que nos inspira até hoje.
+        </p>
+        <p class="text-base md:text-lg text-black mb-4">
+            Aqui, cada receita é preparada com carinho, trazendo à memória o sabor da comida de vó — aquela que perfuma a casa e aquece o coração.
+        </p>
+        <p class="text-base md:text-lg text-black mb-4">
+            Nosso propósito é oferecer delícias frescas e de qualidade, feitas como se fossem para a nossa própria família.
+        </p>
+        <p class="text-base md:text-lg text-black mb-4">
+            Venha nos visitar e descubra o verdadeiro sabor da tradição em cada fornada!
+        </p>
+        <div class="mt-4">
+            <span class="block font-semibold text-[#202D82] text-lg">Localização:</span>
+            <span class="block text-black text-base">Rua Jorge Lacerda, 1883, Cascavel, Paraná, Brasil 85807190</span>
         </div>
-        <div>
-            <h3 class="font-semibold mb-2">Use cases</h3>
-            <ul class="space-y-1 text-sm text-gray-200">
-                <li><a href="#" class="hover:underline">UI design</a></li>
-                <li><a href="#" class="hover:underline">UX design</a></li>
-                <li><a href="#" class="hover:underline">Wireframing</a></li>
-                <li><a href="#" class="hover:underline">Diagramming</a></li>
-                <li><a href="#" class="hover:underline">Brainstorming</a></li>
-                <li><a href="#" class="hover:underline">Online whiteboard</a></li>
-                <li><a href="#" class="hover:underline">Team collaboration</a></li>
-            </ul>
+    </div>
+    <div class="flex-shrink-0 flex justify-center w-full md:w-auto">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.836262088263!2d-53.4635!3d-24.9555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f3f3e9b8b8b8b8%3A0x123456789abcdef!2sRua%20Jorge%20Lacerda%2C%201883%20-%20Centro%2C%20Cascavel%20-%20PR%2C%2085807-190%2C%20Brasil!5e0!3m2!1spt-BR!2sbr!4v1719250000000!5m2!1spt-BR!2sbr" 
+            width="500" 
+            height="350" 
+            style="border:4px solid #202D82; border-radius:12px; background:white;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa Villa Lacelli"></iframe>
+    </div>
+</section>
+<footer class="bg-[#202D82] text-white pt-6 pb-0 px-4 md:px-16 mt-8 w-full">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-center items-center gap-2 pb-2 w-full md:gap-4 flex-wrap">
+        <div class="flex gap-2 text-2xl">
+            <a href="#" aria-label="Facebook" class="hover:opacity-80"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" aria-label="Instagram" class="hover:opacity-80"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube" class="hover:opacity-80"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" aria-label="LinkedIn" class="hover:opacity-80"><i class="fa-brands fa-linkedin"></i></a>
         </div>
-        <div>
-            <h3 class="font-semibold mb-2">Explore</h3>
-            <ul class="space-y-1 text-sm text-gray-200">
-                <li><a href="#" class="hover:underline">Design</a></li>
-                <li><a href="#" class="hover:underline">Prototyping</a></li>
-                <li><a href="#" class="hover:underline">Development features</a></li>
-                <li><a href="#" class="hover:underline">Design systems</a></li>
-                <li><a href="#" class="hover:underline">Collaboration features</a></li>
-                <li><a href="#" class="hover:underline">Design process</a></li>
-                <li><a href="#" class="hover:underline">FigJam</a></li>
-            </ul>
-        </div>
-        <div>
-            <h3 class="font-semibold mb-2">Resources</h3>
-            <ul class="space-y-1 text-sm text-gray-200">
-                <li><a href="#" class="hover:underline">Blog</a></li>
-                <li><a href="#" class="hover:underline">Best practices</a></li>
-                <li><a href="#" class="hover:underline">Colors</a></li>
-                <li><a href="#" class="hover:underline">Color wheel</a></li>
-                <li><a href="#" class="hover:underline">Support</a></li>
-                <li><a href="#" class="hover:underline">Developers</a></li>
-                <li><a href="#" class="hover:underline">Resource library</a></li>
-            </ul>
-        </div>
+        <span class="flex items-center text-base whitespace-nowrap ml-2"><i class="fa-brands fa-whatsapp mr-2"></i>(44) 99723-1022</span>
+        <span class="text-base whitespace-nowrap ml-2">Rua Jorge Lacerda, 1883 - Cascavel/PR</span>
+    </div>
+    <div class="bg-[#202D82] text-gray-200 text-sm flex justify-center items-center py-2 px-2 mt-0 w-full max-w-5xl mx-auto">
+        <span class="text-center w-full">Todos os direitos reservados - Grupo 3 - Copyright © 2025</span>
     </div>
 </footer>
 </body>

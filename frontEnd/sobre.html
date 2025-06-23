@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - Villa Lacelli</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            background: #e7dfc6;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+<header class="flex items-center justify-between px-4 md:px-8 py-2 md:py-4 min-h-16 md:min-h-20 bg-[#202D82]">
+    <img src="../IMG/logosemfundo.png" alt="Logo Villa Lacelli" class="h-10 w-auto md:h-16">
+    <button id="menu-btn" class="md:hidden text-white text-3xl focus:outline-none">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+    <div id="menu" class="hidden md:block absolute md:static top-16 left-0 w-full md:w-auto bg-[#202D82] md:bg-transparent z-50 transition-all duration-300 opacity-0 md:opacity-100 -translate-y-4 md:translate-y-0">
+        <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 space-x-0 md:space-x-4 items-center px-4 md:px-0 py-4 md:py-0">
+            <li>
+                <a href="../index.html" class="bg-[#F47C6D] text-white px-2 py-1 md:px-4 rounded-lg hover:bg-[#e96a5a] transition text-sm md:text-base block text-center">Página Inicial</a>
+            </li>
+            <li>
+                <a href="produtos.html" class="bg-[#F47C6D] text-white px-2 py-1 md:px-4 rounded-lg hover:bg-[#e96a5a] transition text-sm md:text-base block text-center">Produtos</a>
+            </li>
+            <li>
+                <a href="sobre.html" class="bg-[#F47C6D] text-white px-2 py-1 md:px-4 rounded-lg hover:bg-[#e96a5a] transition text-sm md:text-base block text-center font-bold">Sobre</a>
+            </li>
+        </ul>
+    </div>
+</header>
+<script>
+const btn = document.getElementById('menu-btn');
+const menu = document.getElementById('menu');
+btn.addEventListener('click', () => {
+    if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        setTimeout(() => {
+            menu.classList.remove('opacity-0', '-translate-y-4');
+            menu.classList.add('opacity-100', 'translate-y-0');
+        }, 10);
+    } else {
+        menu.classList.remove('opacity-100', 'translate-y-0');
+        menu.classList.add('opacity-0', '-translate-y-4');
+        setTimeout(() => {
+            menu.classList.add('hidden');
+        }, 300);
+    }
+});
+document.addEventListener('click', function(event) {
+    if (!btn.contains(event.target) && !menu.contains(event.target) && window.innerWidth < 768) {
+        if (!menu.classList.contains('hidden')) {
+            menu.classList.remove('opacity-100', 'translate-y-0');
+            menu.classList.add('opacity-0', '-translate-y-4');
+            setTimeout(() => {
+                menu.classList.add('hidden');
+            }, 300);
+        }
+    }
+});
+</script>
+<main class="flex-1 flex items-center justify-center py-10 px-4">
+    <div class="bg-white border-4 border-[#b7cee9] shadow-2xl max-w-2xl w-full p-10 md:p-16 rounded-2xl">
+        <h1 class="text-3xl md:text-4xl font-bold text-[#202D82] mb-6">Sobre a Villa Lacelli</h1>
+        <p class="text-lg mb-4">Seja muito bem-vindo à <span class="font-semibold text-[#202D82]">Villa Lacelli</span>! A origem do nosso nome é especial, "Lacelli" é uma homenagem à rua La Cerda de Cascavel, cuja história e receitas se uniram com o passar dos anos, dando origem a uma tradição de sabores genuínos e reconfortantes.</p>
+        <p class="mb-4">Na Villa Lacelli, cada pão, bolo e delícia é feito com muito afeto, evocando a comida da avó – aquela que espalha um aroma delicioso pela casa e conforta a alma. Desejamos que cada pedaço te transporte para um instante de lembranças, revivendo a infância e os sabores descomplicados de alegria do dia a dia.</p>
+        <p class="mb-4">Nosso objetivo é proporcionar alimentos frescos, de excelente qualidade e elaborados com carinho, como se fossem feitos em casa. Venha nos conhecer e sinta como a tradição da família La Cerda permanece presente em cada receita que sai do forno!</p>
+    </div>
+</main>
+<footer class="bg-[#202D82] text-white pt-2 pb-0 px-4 md:px-16 mt-8 w-full">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-center items-center gap-2 pb-0 w-full md:gap-4 flex-wrap">
+        <div class="flex gap-2 text-2xl">
+            <a href="#" aria-label="Facebook" class="hover:opacity-80"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" aria-label="Instagram" class="hover:opacity-80"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube" class="hover:opacity-80"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" aria-label="LinkedIn" class="hover:opacity-80"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        <span class="flex items-center text-base whitespace-nowrap ml-2"><i class="fa-brands fa-whatsapp mr-2"></i>(44) 99723-1022</span>
+        <span class="text-base whitespace-nowrap ml-2">Rua Jorge Lacerda, 1883 - Cascavel/PR</span>
+    </div>
+    <div class="bg-[#202D82] text-gray-200 text-sm flex justify-center items-center py-2 px-2 mt-0 w-full max-w-5xl mx-auto">
+        <span class="text-center w-full">Todos os direitos reservados - Grupo 3 - Copyright © 2025</span>
+    </div>
+</footer>
+</body>
+</html>
